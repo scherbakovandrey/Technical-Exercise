@@ -1,0 +1,18 @@
+{
+    "require": {
+        "jwage/easy-csv": "^0.0.3"
+    },
+    "autoload": {
+        "psr-4": {
+             "TestTaker\\": "src/",
+             "TestTaker\\Controllers\\": "src/controllers/",
+             "TestTaker\\Providers\\": "src/providers/",
+             "TestTaker\\Processors\\": "src/processors/",
+             "TestTaker\\Importers\\": "src/importers/",
+             "TestTaker\\Models\\": "src/models/",
+             "TestTaker\\Utils\\": "src/utils/"
+        }
+    },
+    "require-dev": {
+    }
+}
