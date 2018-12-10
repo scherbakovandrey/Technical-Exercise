@@ -29,12 +29,12 @@ class Paginator {
 
     public function paginate()
     {
-        if (!empty($offset) && is_numeric($offset) && !empty($limit) && is_numeric($limit)) {
-            return array_slice($this->data, $offset, $limit);
-        } elseif (!empty($offset) && is_numeric($offset)) {
-            return array_slice($this->data, $offset);
-        } elseif (!empty($limit) && is_numeric($limit)) {
-            return array_slice($this->data, 0, $limit);
+        if (!empty($this->offset) && is_numeric($this->offset) && !empty($this->limit) && is_numeric($this->limit)) {
+            return array_slice($this->data, $this->offset, $this->limit);
+        } elseif (!empty($this->offset) && is_numeric($this->offset)) {
+            return array_slice($this->data, $this->offset);
+        } elseif (!empty($this->limit) && is_numeric($this->limit)) {
+            return array_slice($this->data, 0, $this->limit);
         } else {
             return $this->data;
         }

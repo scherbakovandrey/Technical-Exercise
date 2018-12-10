@@ -10,13 +10,12 @@ class ParamsStorage
 
     private $resourceId = -1;
 
-    public function setParams($request)
+    public function setParams($params)
     {
-        if (isset($request['limit'])) $this->limit = $request['limit'];
-        if (isset($request['offset'])) $this->offset = $request['offset'];
-        if (isset($request['name'])) $this->name =  $request['name'];
+        if (isset($params['limit'])) $this->limit = $params['limit'];
+        if (isset($params['offset'])) $this->offset = $params['offset'];
+        if (isset($params['name'])) $this->name =  $params['name'];
 
-        if (isset($request['user'])) $this->user = $request['user'];
         return $this;
     }
 

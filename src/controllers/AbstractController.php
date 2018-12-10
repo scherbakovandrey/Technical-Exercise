@@ -30,9 +30,9 @@ abstract class AbstractController
         return $this;
     }
 
-    public function setParams($request)
+    public function setParams($params)
     {
-        $this->paramsStorage->setParams($request);
+        $this->paramsStorage->setParams($params);
         return $this;
     }
 

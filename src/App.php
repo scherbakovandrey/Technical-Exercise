@@ -6,8 +6,7 @@ use TestTaker\Utils\ClassLoader;
 
 class App {
     public static function run() {
-        $request = isset($_GET['request']) ? $_GET['request'] : 'default';
-        $class = ClassLoader::load($request);
+        $class = ClassLoader::load($_GET);
 
         header('Content-Type: application/json');
         header('Accept: application/json');

@@ -6,19 +6,29 @@ class RequestParser
 {
     public static function parse($request)
     {
-        $requestData = explode('/', $request);
+        $requestData = explode('/', $request['resources']);
 
         $controller = $requestData[0];
         $controller = ucfirst(strtolower($controller));
 
-        $id = -1;
+        $resourceId = -1;
 
         if (isset($requestData[1])) {
-            $id = $requestData[1];
+            $resourceId = $requestData[1];
         }
-        return [
+
+        $parsedRequest = [
             'controller' => $controller,
-            'id' => $id,
+            'resourceId' => $resourceId,
         ];
+
+        unset($request['resources']);
+        if (count($request)) {
+            $parsedRequest['params'] = $request;
+        } else {
+            $parsedRequest['params'] = [];
+        }
+
+        return $parsedRequest;
     }
 }

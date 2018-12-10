@@ -11,7 +11,8 @@ class ClassLoader
         $parsedRequest = RequestParser::parse($request);
 
         $controller = $parsedRequest['controller'];
-        $resourceId = $parsedRequest['id'];
+        $resourceId = $parsedRequest['resourceId'];
+        $params = $parsedRequest['params'];
 
         //simple controller loader. We assume that all requests are called using the GET method.
         $controllerClass = 'TestTaker\\Controllers\\' . $controller . 'Controller';
@@ -19,7 +20,7 @@ class ClassLoader
         if (class_exists($controllerClass)) {
             return (new $controllerClass())
                 ->setResourceId($resourceId)
-                ->setParams($_GET);
+                ->setParams($params);
         }
         return new \TestTaker\Controllers\DefaultController();
     }
