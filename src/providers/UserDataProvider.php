@@ -6,14 +6,14 @@ class UserDataProvider extends AbstractDataProvider
 {
     public function provide()
     {
-        $userId = $this->paramsStorage->getUser();
+        $resourceId = $this->paramsStorage->getResourceId();
 
         $data = $this->reader->read();
 
-        if (is_numeric($userId) && $userId >= 0 && $userId < count($data)) {
-            return $data[$userId];
+        if (is_numeric($resourceId) && $resourceId >= 0 && $resourceId < count($data)) {
+            return $data[$resourceId];
         } else {
-            return 'User with id ' . $userId . ' does not exist';
+            return 'User with id ' . $resourceId . ' does not exist';
         }
     }
 }

@@ -7,9 +7,9 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'TestTaker\\Utils\\' => array($baseDir . '/src/utils'),
+    'TestTaker\\Tests\\' => array($baseDir . '/src/tests'),
     'TestTaker\\Providers\\' => array($baseDir . '/src/providers'),
     'TestTaker\\Processors\\' => array($baseDir . '/src/processors'),
-    'TestTaker\\Models\\' => array($baseDir . '/src/models'),
     'TestTaker\\Importers\\' => array($baseDir . '/src/importers'),
     'TestTaker\\Controllers\\' => array($baseDir . '/src/controllers'),
     'TestTaker\\' => array($baseDir . '/src'),

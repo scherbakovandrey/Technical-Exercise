@@ -8,7 +8,7 @@ class ParamsStorage
     private $offset = 0;
     private $name = '';
 
-    private $user = -1;
+    private $resourceId = -1;
 
     public function setParams($request)
     {
@@ -18,6 +18,17 @@ class ParamsStorage
 
         if (isset($request['user'])) $this->user = $request['user'];
         return $this;
+    }
+
+    public function setResourceId($resouceId)
+    {
+        $this->resourceId = $resouceId;
+        return $this;
+    }
+
+    public function getResourceId()
+    {
+        return $this->resourceId;
     }
 
     public function getLimit()
@@ -33,10 +44,5 @@ class ParamsStorage
     public function getName()
     {
         return $this->name;
-    }
-
-    public function getUser()
-    {
-        return $this->user;
     }
 }

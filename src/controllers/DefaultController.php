@@ -6,7 +6,6 @@ class DefaultController extends AbstractController
 {
     public function processRequest()
     {
-	return 'No API Method';
+        return 'No API Method';
     }
-
 }

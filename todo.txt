@@ -1,0 +1,3 @@
+1. Tests ?
+2. API http errors handling
+3. File testing

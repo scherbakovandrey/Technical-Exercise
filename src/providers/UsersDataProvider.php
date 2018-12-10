@@ -3,30 +3,24 @@
 namespace TestTaker\Providers;
 
 use TestTaker\Utils\FilterByName;
+use TestTaker\Utils\Paginator;
 
 class UsersDataProvider extends AbstractDataProvider
 {
+    /**
+     * @return array
+     */
     public function provide()
     {
-        $limit = $this->paramsStorage->getLimit();
-        $offset = $this->paramsStorage->getOffset();
-        $name = $this->paramsStorage->getName();
-
-        $data = $this->reader->read();
+        $data = $this->reader->read(true);
 
         if (!empty($name)) {
-            $data = array_filter($data, array(new FilterByName($name), 'filter'));
+            $data = array_filter($data, array(new FilterByName($this->paramsStorage->getName()), 'filter'));
         }
 
-        if (!empty($offset) && is_numeric($offset) && !empty($limit) && is_numeric($limit)) {
-            return array_slice($data, $offset, $limit);
-        } elseif (!empty($offset) && is_numeric($offset)) {
-            return array_slice($data, $offset);
-        } elseif (!empty($limit) && is_numeric($limit)) {
-            return array_slice($data, 0, $limit);
-        } else {
-            return $data;
-
-        }
+        return (new Paginator($data))
+            ->setOffset($this->paramsStorage->getOffset())
+            ->setLimit($this->paramsStorage->getLimit())
+            ->paginate();
     }
 }

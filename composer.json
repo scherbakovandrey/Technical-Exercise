@@ -9,8 +9,8 @@
              "TestTaker\\Providers\\": "src/providers/",
              "TestTaker\\Processors\\": "src/processors/",
              "TestTaker\\Importers\\": "src/importers/",
-             "TestTaker\\Models\\": "src/models/",
-             "TestTaker\\Utils\\": "src/utils/"
+             "TestTaker\\Utils\\": "src/utils/",
+             "TestTaker\\Tests\\": "src/tests/"
         }
     },
     "require-dev": {

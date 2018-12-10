@@ -10,6 +10,10 @@ use TestTaker\Importers;
 
 abstract class AbstractController
 {
+    static $csvFilename = SAMPLE_CSV_FILE_LOCATION;
+
+    static $jsonFilename = SAMPLE_JSON_FILE_LOCATION;
+
     /**
      * @var ParamsStorage
      */
@@ -18,6 +22,12 @@ abstract class AbstractController
     public function __construct()
     {
         $this->paramsStorage = new ParamsStorage();
+    }
+
+    public function setResourceId($resourceId)
+    {
+        $this->paramsStorage->setResourceId($resourceId);
+        return $this;
     }
 
     public function setParams($request)
@@ -38,14 +48,15 @@ abstract class AbstractController
     */
     protected function getDataProvider()
     {
-        return $this->getJsonDataProvider();
+        //return $this->getJsonDataProvider();
+        return $this->getCsvDataProvider();
     }
 
     protected function getCsvReader()
     {
         return new Importers\CsvDataParserDecorator( //data parser level [read output: properly mapped array]
             new Importers\CsvReaderDecorator( //csv parser level [read output: parsed array from CSV with original mapping ]
-                new Importers\FilenameReaderDecorator('../testTakers.csv') //filename level [read output: filename ]
+                new Importers\FilenameReaderDecorator(self::$csvFilename) //filename level [read output: filename ]
             )
         );
     }
@@ -54,7 +65,7 @@ abstract class AbstractController
     {
         return new Importers\JsonDataParserDecorator( //data parser level [read output: properly mapped array]
             new Importers\JsonReaderDecorator( //json parser level [read output: parsed array from JSON with original mapping ]
-                new Importers\FilenameReaderDecorator('../testTakers.json') //filename level [read output: filename ]
+                new Importers\FilenameReaderDecorator(self::$jsonFilename) //filename level [read output: filename ]
             )
         );
     }
@@ -66,5 +77,15 @@ abstract class AbstractController
             new Importers\DatabaseReaderDecorator(), //data parser level [read output: properly mapped array from database]
             $this->paramsStorage
         );
+    }
+
+    protected function getCsvDataProvider()
+    {
+        return null;
+    }
+
+    protected function getJsonDataProvider()
+    {
+        return null;
     }
 }

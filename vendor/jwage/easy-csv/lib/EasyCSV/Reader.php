@@ -12,7 +12,7 @@ class Reader extends AbstractBase
     /**
      * @var array|bool
      */
-    private $headers = false;
+    protected $headers = false;
 
     /**
      * @var

@@ -6,7 +6,7 @@ use TestTaker\Utils\ArrayGetValueByKeyPath;
 
 abstract class AbstractDataParserDecorator extends AbstractReaderDecorator
 {
-    public function read()
+    public function read($isShort = false)
     {
         $data = $this->reader->read();
 
@@ -18,14 +18,14 @@ abstract class AbstractDataParserDecorator extends AbstractReaderDecorator
         $i = 0;
         $parsedData = [];
         foreach ($dataArr as $d) {
-            $parsedData[] = $this->populate($d);
+            $parsedData[] = $this->populate($d, $isShort);
             $parsedData[$i]['userId'] = $i;
             $i++;
         }
         return $parsedData;
     }
 
-    abstract protected function populate($d);
+    abstract protected function populate($d, $isShort);
 
     abstract protected function getDataKey();
 }

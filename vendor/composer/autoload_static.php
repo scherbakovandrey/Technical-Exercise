@@ -10,9 +10,9 @@ class ComposerStaticInitb6da5850062fddefaeaf4fd2d5ce9e1e
         'T' => 
         array (
             'TestTaker\\Utils\\' => 16,
+            'TestTaker\\Tests\\' => 16,
             'TestTaker\\Providers\\' => 20,
             'TestTaker\\Processors\\' => 21,
-            'TestTaker\\Models\\' => 17,
             'TestTaker\\Importers\\' => 20,
             'TestTaker\\Controllers\\' => 22,
             'TestTaker\\' => 10,
@@ -24,6 +24,10 @@ class ComposerStaticInitb6da5850062fddefaeaf4fd2d5ce9e1e
         array (
             0 => __DIR__ . '/../..' . '/src/utils',
         ),
+        'TestTaker\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/tests',
+        ),
         'TestTaker\\Providers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/providers',
@@ -31,10 +35,6 @@ class ComposerStaticInitb6da5850062fddefaeaf4fd2d5ce9e1e
         'TestTaker\\Processors\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/processors',
-        ),
-        'TestTaker\\Models\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/models',
         ),
         'TestTaker\\Importers\\' => 
         array (

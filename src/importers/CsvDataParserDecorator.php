@@ -9,13 +9,26 @@ class CsvDataParserDecorator extends AbstractDataParserDecorator
         return [];
     }
 
-    protected function populate($d)
+    protected function populate($d, $isShort)
     {
         $schema =
             [
-                'firstName' => $d['name.first'],
-                'lastName' => $d['name.last'],
+                'lastName' => $d['lastname'],
+                'firstName' => $d['firstname'],
             ];
+
+        if (!$isShort) {
+            $schema = array_merge($schema,
+                [
+                    'login' => $d['login'],
+                    'password' => $d['password'],
+                    'title' => $d['title'],
+                    'gender' => $d['gender'],
+                    'email' => $d['email'],
+                    'picture' => $d['picture'],
+                    'address' => $d['address'],
+                ]);
+        }
         return $schema;
     }
 }
