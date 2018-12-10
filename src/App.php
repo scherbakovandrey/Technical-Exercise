@@ -8,9 +8,7 @@ class App {
     public static function run() {
         $class = ClassLoader::load($_GET);
 
-        header('Content-Type: application/json');
-        header('Accept: application/json');
-
+        header('Content-Type: application/json; charset=utf-8');
         $response = $class->processRequest();
         echo $response;
     }
