@@ -2,10 +2,14 @@
 
 namespace TestTaker\Controllers;
 
+use TestTaker\Utils\JsonEncoder;
+
 class DefaultController extends AbstractController
 {
     public function processRequest()
     {
-        return 'No API Method';
+        $message = 'No API Method';
+
+        return JsonEncoder::encode($message);
     }
 }

@@ -48,8 +48,8 @@ abstract class AbstractController
     */
     protected function getDataProvider()
     {
-        //return $this->getJsonDataProvider();
-        return $this->getCsvDataProvider();
+        return $this->getJsonDataProvider();
+        //return $this->getCsvDataProvider();
     }
 
     protected function getCsvReader()
