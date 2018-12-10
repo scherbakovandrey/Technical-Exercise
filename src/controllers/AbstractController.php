@@ -45,7 +45,7 @@ abstract class AbstractController
     {
         return new Importers\CsvDataParserDecorator( //data parser level [read output: properly mapped array]
             new Importers\CsvReaderDecorator( //csv parser level [read output: parsed array from CSV with original mapping ]
-                new Importers\FilenameReaderDecorator('c:\wamp\www\testTakers.csv') //filename level [read output: filename ]
+                new Importers\FilenameReaderDecorator('../testTakers.csv') //filename level [read output: filename ]
             )
         );
     }
@@ -54,7 +54,7 @@ abstract class AbstractController
     {
         return new Importers\JsonDataParserDecorator( //data parser level [read output: properly mapped array]
             new Importers\JsonReaderDecorator( //json parser level [read output: parsed array from JSON with original mapping ]
-                new Importers\FilenameReaderDecorator('c:\wamp\www\testTakers.json') //filename level [read output: filename ]
+                new Importers\FilenameReaderDecorator('../testTakers.json') //filename level [read output: filename ]
             )
         );
     }

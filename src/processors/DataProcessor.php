@@ -21,8 +21,6 @@ class DataProcessor implements ProcessorInterface
     {
         $data = $this->provider->provide();
 
-        print_r($data);        die();
-
         return JsonEncoder::encode($data);
     }
 }

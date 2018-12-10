@@ -8,7 +8,7 @@ class ParamsStorage
     private $offset = 0;
     private $name = '';
 
-    private $user = 0;
+    private $user = -1;
 
     public function setParams($request)
     {

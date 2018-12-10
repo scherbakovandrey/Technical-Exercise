@@ -12,7 +12,7 @@ class ClassLoader
         if (class_exists($controller)) {
             return (new $controller)->setParams($_GET);
         }
-        return null;
+        return new \TestTaker\Controllers\DefaultController();
     }
 
 }
