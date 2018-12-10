@@ -14,8 +14,10 @@ class UsersDataProvider extends AbstractDataProvider
     {
         $data = $this->reader->read(true);
 
+        $name = $this->paramsStorage->getName();
+
         if (!empty($name)) {
-            $data = array_filter($data, array(new FilterByName($this->paramsStorage->getName()), 'filter'));
+            $data = array_filter($data, array(new FilterByName($name), 'filter'));
         }
 
         return (new Paginator($data))
